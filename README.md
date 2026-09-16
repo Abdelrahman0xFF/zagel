@@ -37,10 +37,11 @@ npm start
 npm run dev
 ```
 
-### 2. Connect Your WhatsApp
+### 2. Connect Your WhatsApp & Launch Cockpit
 
-1. Open **`http://localhost:7860`** in your browser.
-2. Choose your pairing method:
+1. Open **`http://localhost:7860/dashboard`** (or click **"Launch Cockpit"** from the public portal at `http://localhost:7860`).
+2. Unlock the Developer Cockpit with your Master Admin Key (`ADMIN_API_KEY`).
+3. Choose your pairing method:
    - **QR Code**: Scan the QR code in WhatsApp (**Settings** &rarr; **Linked Devices** &rarr; **Link a Device**).
    - **Phone Pairing Code**: Click _"Phone Pairing Code"_, input your phone number with country code, and type the 8-character passcode into WhatsApp.
 
@@ -49,14 +50,28 @@ npm run dev
 ```bash
 curl -X POST "http://localhost:7860/api/messages/send" \
   -H "Content-Type: application/json" \
+  -H "x-api-key: YOUR_TOKEN_HERE" \
   -d '{"number": "201012345678", "message": "Hello from Zagel! 🕊️"}'
 ```
 
 ---
 
+## 🌐 Public Portal vs. Developer Cockpit
+
+Zagel features a clean, dual-surface architecture designed for both public discoverability and private operational control:
+
+| Route | Purpose | Description |
+|---|---|---|
+| **`/`** | **Public SEO Landing Page** | Explains *"What is Zagel"*, *"How it Works"*, interactive architecture pipeline, live gateway telemetry status, and step-by-step guides for developers to **fork and self-host** their own gateway. Includes rich Schema.org JSON-LD structured data for search engine indexation. |
+| **`/dashboard`** | **Developer Cockpit** | Secure command center protected by the Master Admin Key. Manage WhatsApp socket pairing, API key generation & revocation, interactive testing studio, and live audit feeds. *(Aliases: `/cockpit`, `/app`)* |
+
+> **Tip for Private Intranets / Custom Forks**: If you want root `/` to serve the Developer Cockpit directly, set `DEFAULT_ROOT=dashboard` in your `.env` file or cloud container environment settings.
+
+---
+
 ## 🖥️ Developer Cockpit Overview
 
-The gateway serves a built-in web cockpit at `http://localhost:7860/` organized into two functional tiers:
+The gateway serves a built-in web cockpit at `http://localhost:7860/dashboard` organized into two functional tiers:
 
 ### Upper Operational Deck (Two-Column Balanced Grid)
 
@@ -79,37 +94,30 @@ The gateway serves a built-in web cockpit at `http://localhost:7860/` organized 
 
 ## ☁️ Deployment Guides
 
-### Option A: Render.com (1-Click Blueprint)
+### Option A: Virtual Private Server (VPS / Linux Host)
 
-The repository includes a [`render.yaml`](render.yaml) blueprint ready for 1-click deployment:
+For native Node.js hosting on any Linux VPS (Ubuntu, Debian, AlmaLinux, Rocky):
 
-1. Push your repository to GitHub.
-2. Go to [Render.com](https://render.com) and navigate to **Blueprints** &rarr; **New Blueprint Instance**.
-3. Connect your repository. Render will automatically detect `render.yaml` and configure the service as a Docker Web Service on the free tier.
-4. Open the deployed service URL (`https://<your-service>.onrender.com`), link your WhatsApp, and start sending messages.
+```bash
+# 1. Clone your repository onto your VPS
+git clone https://github.com/YOUR_USERNAME/zagel.git
+cd zagel && npm install
 
-> [!TIP]
-> **Keep Free Tier Containers Awake (24/7)**:
-> Render Free Web Services spin down after 15 minutes of inactivity. Set up a free HTTP monitor at [UptimeRobot](https://uptimerobot.com) or [cron-job.org](https://cron-job.org) to ping `GET https://<your-service>.onrender.com/api/health` every 10 minutes to maintain persistent WebSocket connectivity.
+# 2. Configure environment
+cp .env.example .env
+nano .env # Set your ADMIN_API_KEY and PORT
 
----
-
-### Option B: Hugging Face Spaces
-
-1. Create a **New Space** on [Hugging Face Spaces](https://huggingface.co/spaces).
-   - **SDK**: `Docker` (Blank).
-   - **Port**: `7860` (already configured in [`Dockerfile`](Dockerfile)).
-2. Push your code:
-   ```bash
-   git remote add space https://huggingface.co/spaces/YOUR_USERNAME/YOUR_SPACE_NAME
-   git push -u space main
-   ```
-3. In Space **Settings** &rarr; **Variables and secrets**, add `ADMIN_API_KEY` (e.g. `adm_live_production_secret_key`).
-4. Open your Space URL and enter your `ADMIN_API_KEY` to unlock the Developer Cockpit and link WhatsApp.
+# 3. Start with PM2 process manager for 24/7 background persistence
+npm install -g pm2
+pm2 start src/server.js --name zagel --max-memory-restart 500M
+pm2 startup && pm2 save
+```
 
 ---
 
-### Option C: Standalone Docker (`docker run`)
+### Option B: Standalone Docker Container (`docker run`)
+
+Run an isolated container on any server, home lab, or virtual machine with persistent data volume:
 
 ```bash
 # Build the production Docker image
@@ -128,21 +136,18 @@ docker run -d \
 
 ---
 
-### Option D: PM2 (Node.js Process Manager for VPS / Bare Metal)
+### Option C: Managed Cloud Container Platform (PaaS)
 
-For native Node.js environments on Ubuntu, Debian, or Windows Server:
+Deploy to any cloud container service or platform-as-a-service using git-push integration:
 
-```bash
-# 1. Install PM2 globally
-npm install -g pm2
-
-# 2. Start the gateway with automatic restarts and memory threshold
-pm2 start src/server.js --name zagel --max-memory-restart 500M
-
-# 3. Configure PM2 to start automatically on system reboot
-pm2 startup
-pm2 save
-```
+1. Push your repository to your Git provider (GitHub / GitLab).
+2. Create a new **Web Service** or **Container App** in your cloud platform dashboard.
+3. Select **Docker / Container** deployment mode (it reads [`Dockerfile`](Dockerfile) and opens port `7860`).
+4. In your cloud environment variables / secrets, set:
+   - `ADMIN_API_KEY=your_secure_master_key`
+   - `PORT=7860`
+5. *(Optional)* Provide `MONGODB_URI` for database-backed persistence across container restarts without needing attached disk volumes.
+6. Open your deployed service URL at `/dashboard`, unlock with your `ADMIN_API_KEY`, and link your WhatsApp device.
 
 ---
 
@@ -564,7 +569,7 @@ The gateway supports dual storage modes with zero breaking changes:
      - `settings`: Master admin key and outbound webhook endpoint configuration.
      - `baileys_auth`: WhatsApp multi-device authentication credentials and Signal ratchet keys.
    - **Automatic Migration**: On initial startup with MongoDB connected, if the MongoDB collections are empty and local data exists in `./data`, the gateway automatically migrates your existing tokens, activity logs, admin secrets, and WhatsApp session credentials directly into MongoDB!
-   - **Ideal For Ephemeral Platforms**: Deploy on **Hugging Face Spaces**, **Render.com**, **Fly.io**, or **Railway** without attaching persistent storage volumes. WhatsApp connections survive container restarts, scaling events, and redeployments seamlessly.
+   - **Ideal For Ephemeral Platforms**: Deploy on **ephemeral cloud platforms**, **managed container hosts**, or **serverless container runners** without attaching persistent storage volumes. WhatsApp connections survive container restarts, scaling events, and redeployments seamlessly.
    - **Safe Fallback**: If the MongoDB URI is invalid or unreachable at boot, the gateway logs a clear warning and falls back safely to local file storage without crashing.
 
 ```ini
@@ -628,7 +633,7 @@ The test runner will confirm that `/api/health` remains sanitized (no private ph
 
 ## 🔒 Production Best Practices & Anti-Ban Safety
 
-1. **Persistent Session Storage (MongoDB or Disk Mount)**: On cloud platforms with ephemeral disks (Render, Hugging Face Spaces, Railway, Fly.io, or container restarts), provide `MONGODB_URI` so your WhatsApp connection, tokens, and logs persist reliably across restarts without needing attached disk volumes. If using local file storage, attach a persistent volume to `./data/`.
+1. **Persistent Session Storage (MongoDB or Disk Mount)**: On cloud platforms with ephemeral disks (managed container hosts, cloud runners, or auto-scaling clusters), provide `MONGODB_URI` so your WhatsApp connection, tokens, and logs persist reliably across restarts without needing attached disk volumes. If using local file storage, attach a persistent volume to `./data/`.
 2. **Warm Up New Phone Numbers**: When using a newly registered WhatsApp number, ramp up volume gradually (e.g., 20-50 messages per day initially) rather than blasting hundreds of messages on day one.
 3. **Use Explicit Opt-In**: Only dispatch messages to users who explicitly opted in to avoid spam reports that trigger WhatsApp automated account restrictions.
 

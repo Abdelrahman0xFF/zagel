@@ -47,12 +47,42 @@ async function runTests() {
       'GET /api/health returns 200 OK and protects privacy (no whitelistPhone, URI, or paths leaked)'
     );
 
-    // 2. Web UI dashboard serves
-    const webRes = await fetch(`${baseUrl}/`);
-    const webHtml = await webRes.text();
-    assert(webRes.status === 200 && webHtml.includes('Zagel'), 'GET / serves Zagel Cockpit Web UI');
+    // 2. Public SEO Landing page serves
+    const landingRes = await fetch(`${baseUrl}/`);
+    const landingHtml = await landingRes.text();
+    assert(
+      landingRes.status === 200 &&
+      landingHtml.includes('Zagel') &&
+      landingHtml.includes('What is Zagel?') &&
+      landingHtml.includes('schema.org'),
+      'GET / serves Zagel Public SEO Landing Page with structured data and architecture overview'
+    );
 
-    // 2b. Favicon static assets serve
+    // 2b. Dedicated Developer Cockpit serves at /dashboard
+    const dashboardRes = await fetch(`${baseUrl}/dashboard`);
+    const dashboardHtml = await dashboardRes.text();
+    assert(
+      dashboardRes.status === 200 &&
+      dashboardHtml.includes('cockpit-shell') &&
+      dashboardHtml.includes('API Tokens'),
+      'GET /dashboard serves Zagel Developer Cockpit Web UI'
+    );
+
+    // 2c. Cockpit redirect alias works
+    const cockpitAliasRes = await fetch(`${baseUrl}/cockpit`, { redirect: 'manual' });
+    assert(
+      cockpitAliasRes.status === 301 &&
+      cockpitAliasRes.headers.get('location') === '/dashboard',
+      'GET /cockpit 301 redirects to /dashboard'
+    );
+
+    // 2d. SEO crawler assets serve
+    const robotsRes = await fetch(`${baseUrl}/robots.txt`);
+    const sitemapRes = await fetch(`${baseUrl}/sitemap.xml`);
+    assert(robotsRes.status === 200 && (await robotsRes.text()).includes('User-agent'), 'GET /robots.txt serves valid crawler rules');
+    assert(sitemapRes.status === 200 && (await sitemapRes.text()).includes('<urlset'), 'GET /sitemap.xml serves valid sitemap XML');
+
+    // 2e. Favicon static assets serve
     const favSvgRes = await fetch(`${baseUrl}/favicon.svg`);
     const favIcoRes = await fetch(`${baseUrl}/favicon.ico`);
     assert(favSvgRes.status === 200 && favIcoRes.status === 200, 'GET /favicon.svg and /favicon.ico return 200 OK');

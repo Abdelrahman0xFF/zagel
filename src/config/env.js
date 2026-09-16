@@ -44,4 +44,5 @@ export const ENV = {
     process.env.MONGO_DB_NAME ||
     ""
   ).trim(),
+  DEFAULT_ROOT: (process.env.DEFAULT_ROOT || "landing").trim().toLowerCase(),
 };

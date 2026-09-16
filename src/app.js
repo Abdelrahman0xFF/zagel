@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import apiRouter from './routes/index.js';
+import { ENV } from './config/env.js';
 import { errorHandler, notFoundHandler } from './middlewares/error.middleware.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -84,7 +85,21 @@ const publicDir = path.join(__dirname, 'public');
 app.use(express.static(publicDir));
 app.use('/api', apiRouter);
 
+// Dedicated Developer Cockpit route
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(publicDir, 'dashboard.html'));
+});
+
+// Convenient aliases for developer cockpit
+app.get(['/cockpit', '/app'], (req, res) => {
+  res.redirect(301, '/dashboard');
+});
+
+// Root URL: Serves SEO Landing Page by default, or Cockpit if DEFAULT_ROOT=dashboard
 app.get('/', (req, res) => {
+  if (ENV.DEFAULT_ROOT === 'dashboard') {
+    return res.sendFile(path.join(publicDir, 'dashboard.html'));
+  }
   res.sendFile(path.join(publicDir, 'index.html'));
 });
 

@@ -12,7 +12,7 @@ Primary users are software developers, technical founders, indie hackers, and sy
 
 ## Product Purpose
 
-Zagel (زاجل) provides a lightweight, standalone, single-container REST API gateway and developer command center that bridges external backends (Python, Node.js, PHP, Go, cURL, webhooks) with WhatsApp. Inspired by the legendary carrier pigeon (حمام زاجل) that pioneered rapid messaging, Zagel is engineered for zero-friction deployment (local, Render, Docker, Hugging Face Spaces), resilient connection management with Baileys, complete API key lifecycle governance, and an intuitive, production-grade developer cockpit.
+Zagel (زاجل) provides a lightweight, standalone, single-container REST API gateway and developer command center that bridges external backends (Python, Node.js, PHP, Go, cURL, webhooks) with WhatsApp. Inspired by the legendary carrier pigeon (حمام زاجل) that pioneered rapid messaging, Zagel is engineered for zero-friction deployment (local workstations, VPS Linux hosts, standalone Docker, and managed cloud platforms), resilient connection management with Baileys, complete API key lifecycle governance, and an intuitive, production-grade developer cockpit.
 
 ## Positioning
 
@@ -20,7 +20,7 @@ Unlike heavy WhatsApp enterprise solutions that require separate databases (Post
 
 ## Operating Context
 
-- Used in local developer environments (`localhost:7860`) and cloud containers (Render.com, Hugging Face Spaces, Fly.io, Railway, VPS Docker).
+- Used in local developer environments (`localhost:7860`), Linux VPS instances, Docker containers, and cloud container platforms.
 - Interacts with Baileys WebSocket protocol connected to WhatsApp mobile devices via QR code or 8-digit pairing code.
 - Consumed via standard HTTP REST requests (`POST /api/messages/send`, `POST /api/otp/send`, `POST /api/otp/verify`, etc.) with `x-api-key` or `Authorization: Bearer <token>`.
 
