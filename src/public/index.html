@@ -3,175 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Primary SEO Meta Tags -->
-    <title>
-      Zagel - Lightweight WhatsApp REST API Gateway &amp; Developer Cockpit
-    </title>
-    <meta
-      name="title"
-      content="Zagel — Lightweight WhatsApp REST API Gateway &amp; Developer Cockpit"
-    />
+    <title>Zagel - WhatsApp REST API Gateway & Developer Cockpit</title>
     <meta
       name="description"
-      content="Zagel (زاجل) is a standalone, single-container WhatsApp REST API gateway and developer command center. Send messages, media, and 6-digit OTP verification with cURL, Python, Node.js, and Go. Zero external databases required."
+      content="Zagel: Production-ready REST API gateway and developer command center for WhatsApp messaging, media dispatch, and OTP verification."
     />
-    <meta
-      name="keywords"
-      content="whatsapp api, whatsapp rest api, whatsapp gateway, self-hosted whatsapp api, baileys whatsapp gateway, whatsapp otp, developer cockpit, whatsapp microservice, vps whatsapp gateway, cloud container whatsapp, docker whatsapp api, single container whatsapp"
-    />
-    <meta name="author" content="Abdelrahman &amp; Zagel Contributors" />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    />
-    <link rel="canonical" href="https://zagel.abdelrahmanashraf.dev/" />
-
-    <!-- Theme & Favicons -->
-    <meta name="theme-color" content="#080c14" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
-
-    <!-- Open Graph / Facebook / LinkedIn / Discord -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zagel.abdelrahmanashraf.dev/" />
-    <meta
-      property="og:title"
-      content="Zagel — Lightweight WhatsApp REST API Gateway &amp; Developer Cockpit"
-    />
-    <meta
-      property="og:description"
-      content="Production-ready, single-container REST API gateway for WhatsApp. Send dispatches, media, and OTPs with any backend. Zero external DB required."
-    />
-    <meta property="og:image" content="https://zagel.abdelrahmanashraf.dev/favicon.svg" />
-    <meta property="og:site_name" content="Zagel (زاجل)" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://zagel.abdelrahmanashraf.dev/" />
-    <meta
-      name="twitter:title"
-      content="Zagel — Lightweight WhatsApp REST API Gateway &amp; Developer Cockpit"
-    />
-    <meta
-      name="twitter:description"
-      content="Production-ready, single-container REST API gateway for WhatsApp. Send dispatches, media, and OTPs with any backend. Zero external DB required."
-    />
-    <meta name="twitter:image" content="https://zagel.abdelrahmanashraf.dev/favicon.svg" />
-
-    <!-- Fonts & Styles -->
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/landing.css" />
-
-    <!-- JSON-LD Structured Data for Rich Search Results -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "SoftwareApplication",
-            "name": "Zagel",
-            "alternateName": "زاجل",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Cross-platform (Linux, macOS, Windows, Docker)",
-            "softwareRequirements": "Node.js >= 20 or Docker",
-            "description": "Zagel provides a lightweight, single-container REST API gateway and developer command center that bridges external backends with WhatsApp using embedded Baileys protocol.",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "license": "https://opensource.org/licenses/MIT",
-            "featureList": [
-              "REST API for WhatsApp text and media dispatch",
-              "Cryptographic 6-digit OTP passcode engine",
-              "Zero external database dependencies",
-              "Dual-tier Master Admin security gate",
-              "Integrated real-time Developer Cockpit",
-              "Multi-language code generation (cURL, Python, Node.js, Go)",
-              "Zero-friction deploy to any VPS, Docker host, or Managed Cloud Platform"
-            ]
-          },
-          {
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is Zagel?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Zagel (زاجل) is a lightweight, single-container WhatsApp REST API gateway that allows web apps, microservices, and backend servers (Python, Node.js, Go, PHP) to send automated messages and verify OTPs through WhatsApp without multi-container complexity or vendor lock-in."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How does Zagel work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Zagel receives standard HTTP REST calls authenticated with an API key, validates the payload and rate limits, and uses an embedded Baileys engine over WebSockets to deliver the messages directly through the WhatsApp multi-device network."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I fork Zagel to build my own WhatsApp gateway?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Zagel is fully open-source under the MIT license. You can fork the repository and launch your own branded, private WhatsApp gateway on any Virtual Private Server (VPS), Docker host, or Cloud Container Platform in under 60 seconds."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does Zagel require an external database like Redis or PostgreSQL?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Zagel is zero-dependency by default and persists session state reliably to disk with atomic writes. Optional MongoDB support is available for distributed cloud environments."
-                }
-              }
-            ]
-          }
-        ]
-      }
-    </script>
   </head>
   <body>
-    <!-- Site Navigation Header -->
-    <header class="site-header">
-      <div class="container nav-wrapper">
-        <a href="/" class="brand-link" aria-label="Zagel Homepage">
-          <div class="brand-icon">
-            <img src="/favicon.svg" alt="Zagel Logo" width="38" height="38" />
-          </div>
-          <div class="brand-title-wrap">
-            <span class="brand-title">Zagel</span>
-            <span class="brand-badge">v2.0</span>
-          </div>
-        </a>
+    <!-- Toast Notification Container -->
+    <div
+      id="toast-container"
+      class="toast-container"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
 
-        <nav aria-label="Primary Navigation">
-          <ul class="nav-links">
-            <li><a href="#overview" class="nav-link">Overview</a></li>
-            <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-            <li><a href="#features" class="nav-link">Features</a></li>
-            <li><a href="#api" class="nav-link">API Spec</a></li>
-            <li><a href="#deploy" class="nav-link">Self-Host &amp; Fork</a></li>
-            <li><a href="#faq" class="nav-link">FAQ</a></li>
-          </ul>
-        </nav>
+    <div class="cockpit-shell">
+      <!-- Top Global Navigation & Telemetry Header -->
+      <header class="cockpit-header">
+        <div class="header-brand">
+          <img
+            class="brand-logo"
+            src="/favicon.svg"
+            alt="Zagel Logo"
+            width="55"
+            height="55"
+          />
+          <div class="brand-meta">
+            <div class="brand-name">
+              <h1 class="product-title">Zagel</h1>
+              <span class="version-tag">v2.0 Production</span>
+            </div>
+            <p class="brand-tagline">
+              WhatsApp REST Gateway & Developer Cockpit
+            </p>
+          </div>
+        </div>
 
-        <div class="nav-actions">
+        <!-- Telemetry Strip -->
+        <div class="telemetry-bar">
+          <div class="telemetry-pill">
+            <span class="telemetry-label">Engine:</span>
+            <span id="engine-badge" class="telemetry-value"
+              >Baileys (Embedded)</span
+            >
+          </div>
+          <div class="telemetry-pill">
+            <span class="telemetry-label">Uptime:</span>
+            <span id="uptime-badge" class="telemetry-value tabular-num"
+              >0s</span
+            >
+          </div>
+          <div
+            id="connection-badge"
+            class="connection-status-pill status-checking"
+          >
+            <span class="status-beacon"></span>
+            <span id="connection-status-text">Checking WhatsApp...</span>
+          </div>
           <a
-            href="https://github.com/Abdelrahman0xFF/zagel"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary btn-sm"
-            title="GitHub Repository"
+            href="/"
+            class="btn btn-header-action"
+            title="View Public Overview & Documentation"
+            style="text-decoration: none; color: inherit"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Public Portal</span>
+          </a>
+          <button
+            id="btn-toggle-tokens"
+            class="btn btn-header-action"
+            type="button"
           >
             <svg
               width="15"
@@ -184,20 +107,22 @@
               stroke-linejoin="round"
             >
               <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                d="M21 2l-2 2m-1-1l-3 3m1 1l-2 2-4-4 2-2 4 4zm-7 7l-5.5 5.5a2.121 2.121 0 0 1-3 0 2.121 2.121 0 0 1 0-3L10 8l4 4z"
               ></path>
             </svg>
-            <span>GitHub</span>
-          </a>
-          <a
-            href="/dashboard"
-            class="btn btn-primary btn-sm"
-            title="Launch Developer Cockpit"
+            <span>API Tokens</span>
+            <span id="header-token-count" class="badge-count tabular-num"
+              >0</span
+            >
+          </button>
+          <button
+            id="btn-scroll-activity"
+            class="btn btn-header-action"
+            type="button"
           >
-            <span>Launch Cockpit</span>
             <svg
-              width="14"
-              height="14"
+              width="15"
+              height="15"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -205,30 +130,95 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <polyline points="9 18 15 12 9 6"></polyline>
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
-          </a>
+            <span>Live Feed</span>
+            <span id="header-activity-beacon" class="beacon-dot active"></span>
+          </button>
+          <button
+            id="btn-admin-lock"
+            class="btn btn-header-action"
+            type="button"
+            title="Master Admin Session Status / Lock"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span id="admin-session-text">Admin</span>
+            <span id="admin-session-badge" class="badge-count badge-locked"
+              >Locked</span
+            >
+          </button>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section class="hero-section" id="hero">
-        <div class="container hero-inner">
-          <h1 class="hero-title">Production-Grade WhatsApp REST API Gateway</h1>
-          <p class="hero-desc">
-            Zagel (زاجل) is a standalone, single-container REST API gateway and
-            developer command center. Send automated notifications, media
-            dispatches, and verify 6-digit OTPs using any backend.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="/dashboard" class="btn btn-primary btn-lg">
-              <span>Open Developer Cockpit</span>
+      <!-- Session Client Key Banner -->
+      <section
+        class="auth-context-bar"
+        aria-label="Client authentication setup"
+      >
+        <div class="auth-info-col">
+          <div class="auth-icon-wrap" aria-hidden="true">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="auth-headline-row">
+              <span class="auth-headline">Client Request Authentication</span>
+              <span id="auth-mode-chip" class="auth-mode-chip auth-mode-open"
+                >No Client Key Selected</span
+              >
+            </div>
+            <div class="auth-subline">
+              Protected by timing-safe SHA-256 validation via
+              <code class="code-inline">x-api-key</code> or
+              <code class="code-inline">Bearer &lt;token&gt;</code>.
+            </div>
+          </div>
+        </div>
+        <div class="auth-input-group">
+          <label for="client-api-key" class="auth-label"
+            >Active Session Key</label
+          >
+          <div class="input-action-wrapper">
+            <input
+              type="password"
+              id="client-api-key"
+              class="mono-input"
+              placeholder="wa_live_... (click 'Use in Session' or paste key)"
+              autocomplete="off"
+            />
+            <button
+              id="btn-clear-session-key"
+              class="btn-input-icon"
+              type="button"
+              title="Clear key"
+              style="display: none"
+            >
               <svg
-                width="16"
-                height="16"
+                width="14"
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -236,14 +226,20 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
-            </a>
-            <a href="#deploy" class="btn btn-secondary btn-lg">
+            </button>
+            <button
+              id="btn-toggle-key-visibility"
+              class="btn-input-icon"
+              type="button"
+              title="Toggle visibility"
+            >
               <svg
-                width="16"
-                height="16"
+                id="eye-icon"
+                width="15"
+                height="15"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -251,201 +247,28 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <circle cx="12" cy="18" r="3"></circle>
-                <circle cx="6" cy="6" r="3"></circle>
-                <circle cx="18" cy="6" r="3"></circle>
-                <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"></path>
-                <path d="M12 12v3"></path>
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
               </svg>
-              <span>Fork &amp; Deploy Your Own</span>
-            </a>
-          </div>
-
-          <!-- Real-time Live Gateway Heartbeat -->
-          <div class="telemetry-status-banner" role="status" aria-live="polite">
-            <div class="telemetry-node">
-              <span id="hero-status-beacon" class="status-beacon"></span>
-              <span class="telemetry-muted">Gateway:</span>
-              <span id="hero-status-text" class="telemetry-highlight"
-                >Checking...</span
-              >
-            </div>
-            <span class="telemetry-sep" aria-hidden="true"></span>
-            <div class="telemetry-node">
-              <span class="telemetry-muted">Engine:</span>
-              <span class="telemetry-highlight">Baileys (Embedded)</span>
-            </div>
-            <span class="telemetry-sep" aria-hidden="true"></span>
-            <div class="telemetry-node">
-              <span class="telemetry-muted">Latency:</span>
-              <span id="hero-latency" class="telemetry-highlight tabular-num"
-                >--</span
-              >
-            </div>
-            <span class="telemetry-sep" aria-hidden="true"></span>
-            <div class="telemetry-node">
-              <span class="telemetry-muted">Uptime:</span>
-              <span id="hero-uptime" class="telemetry-highlight tabular-num"
-                >--</span
-              >
-            </div>
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- Section 1: What is Zagel? -->
-      <section class="section" id="overview">
-        <div class="container">
-          <div class="story-grid">
-            <div class="story-content">
-              <h2 class="section-title">What is Zagel?</h2>
-              <p>
-                Named after the legendary carrier pigeon (حمام زاجل) that
-                pioneered rapid, reliable point-to-point communication,
-                <strong>Zagel</strong> is an open-source WhatsApp REST API
-                gateway built specifically for developers who need to dispatch
-                messages without infrastructure headache.
-              </p>
-              <p>
-                Most WhatsApp solutions force you into complex multi-container
-                Docker Compose stacks mandating PostgreSQL, Redis, and external
-                message queues just to send a notification. Zagel eliminates
-                that complexity: it runs as a
-                <strong
-                  >single process inside a single lightweight container</strong
-                >, saving costs and making deployment effortless.
-              </p>
-              <ul class="story-highlights">
-                <li class="story-item">
-                  <svg
-                    class="story-item-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span
-                    ><strong>Zero External Databases Required</strong>: Persists
-                    session state reliably to local disk with atomic
-                    writes.</span
-                  >
-                </li>
-                <li class="story-item">
-                  <svg
-                    class="story-item-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span
-                    ><strong>Self-Contained Cockpit</strong>: Integrated QR-code
-                    and 8-digit pairing hub, token studio, and real-time live
-                    audit logs.</span
-                  >
-                </li>
-                <li class="story-item">
-                  <svg
-                    class="story-item-icon"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span
-                    ><strong>Developer First</strong>: Generates copy-paste code
-                    in cURL, Python, Node.js, and Go with one-click token
-                    authorization.</span
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="comparison-box">
-              <h3 class="comparison-title">Architecture Comparison</h3>
-              <table class="comparison-table">
-                <thead>
-                  <tr>
-                    <th>Capability</th>
-                    <th>Zagel Gateway</th>
-                    <th>Heavy Alternatives</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Container Footprint</td>
-                    <td class="zagel-col">1 Single Container</td>
-                    <td class="other-col">4+ Microservices</td>
-                  </tr>
-                  <tr>
-                    <td>Database Requirement</td>
-                    <td class="zagel-col">Zero (Local Atomic JSON)</td>
-                    <td class="other-col">Postgres + Redis</td>
-                  </tr>
-                  <tr>
-                    <td>Memory Footprint</td>
-                    <td class="zagel-col">~120 MB RAM</td>
-                    <td class="other-col">1.5 GB - 3 GB RAM</td>
-                  </tr>
-                  <tr>
-                    <td>Deployment Flexibility</td>
-                    <td class="zagel-col">Any VPS, Docker, or Cloud PaaS</td>
-                    <td class="other-col">Requires Multi-Node VPS</td>
-                  </tr>
-                  <tr>
-                    <td>Built-in Token Manager</td>
-                    <td class="zagel-col">Native SHA-256 Studio</td>
-                    <td class="other-col">External Auth Service</td>
-                  </tr>
-                  <tr>
-                    <td>Integrated Developer UI</td>
-                    <td class="zagel-col">Included at /dashboard</td>
-                    <td class="other-col">Separate Frontend App</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 2: How It Works -->
-      <section class="section" id="how-it-works">
-        <div class="container">
-          <div class="section-head center">
-            <h2 class="section-title">How Zagel Works</h2>
-            <p class="section-lead">
-              An end-to-end look at how standard HTTP REST calls flow securely
-              through the gateway to WhatsApp recipients.
-            </p>
-          </div>
-
-          <div class="arch-diagram">
-            <div class="pipeline-grid">
-              <div class="pipeline-card">
-                <div class="pipeline-card-header">
-                  <div class="pipeline-card-icon">
+      <!-- Main Cockpit Layout: Upper Operational Deck (2 Columns) & Lower Observability Deck (Full Width) -->
+      <main class="cockpit-layout">
+        <!-- UPPER OPERATIONAL DECK -->
+        <div class="cockpit-top-grid">
+          <!-- LEFT COLUMN: INSTANCE CONNECTION & TOKEN GOVERNANCE -->
+          <div class="grid-column">
+            <!-- CARD 1: WHATSAPP INSTANCE & PAIRING -->
+            <section class="cockpit-card" id="card-connection">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-icon-frame" aria-hidden="true">
                     <svg
-                      width="20"
-                      height="20"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -454,96 +277,206 @@
                       stroke-linejoin="round"
                     >
                       <rect
-                        x="2"
-                        y="3"
-                        width="20"
-                        height="14"
+                        x="5"
+                        y="2"
+                        width="14"
+                        height="20"
                         rx="2"
                         ry="2"
                       ></rect>
-                      <line x1="8" y1="21" x2="16" y2="21"></line>
-                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
                     </svg>
                   </div>
-                  <span class="pipeline-step-badge">Stage 1</span>
+                  <div>
+                    <h2 class="card-heading">WhatsApp Device Link</h2>
+                    <p class="card-subheading">
+                      Manage active WebSocket session and device authentication.
+                    </p>
+                  </div>
                 </div>
-                <h3 class="pipeline-card-title">Your Backend Service</h3>
-                <p class="pipeline-card-desc">
-                  Your web app, microservice, or CRM dispatches standard HTTP
-                  POST requests with an API key.
-                </p>
-                <span class="pipeline-tech-tag">cURL / Python / Node / Go</span>
+                <button
+                  id="btn-refresh-status"
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  title="Refresh connection state"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                  </svg>
+                  <span>Refresh</span>
+                </button>
               </div>
 
-              <div class="pipeline-card featured">
-                <div class="pipeline-card-header">
-                  <div class="pipeline-card-icon">
+              <!-- CONNECTED STATE VIEW -->
+              <div
+                id="view-connected"
+                class="connection-view-state"
+                style="display: none"
+              >
+                <div class="connected-hero">
+                  <div class="hero-check-ring" aria-hidden="true">
                     <svg
-                      width="20"
-                      height="20"
+                      width="30"
+                      height="30"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
+                      stroke-width="2.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <rect
-                        x="3"
-                        y="11"
-                        width="18"
-                        height="11"
-                        rx="2"
-                        ry="2"
-                      ></rect>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
                     </svg>
                   </div>
-                  <span class="pipeline-step-badge">Stage 2</span>
+                  <h3 class="hero-status-title">WhatsApp Socket Connected</h3>
+                  <p id="connected-phone-display" class="hero-status-desc">
+                    Active phone number connected to WhatsApp Web multi-device
+                    session.
+                  </p>
                 </div>
-                <h3 class="pipeline-card-title">Zagel REST Engine</h3>
-                <p class="pipeline-card-desc">
-                  Express 5.x applies timing-safe SHA-256 authentication,
-                  validates phone numbers, and enforces anti-spam rate limits.
-                </p>
-                <span class="pipeline-tech-tag">Timing-Safe Auth Gate</span>
-              </div>
 
-              <div class="pipeline-card featured">
-                <div class="pipeline-card-header">
-                  <div class="pipeline-card-icon">
+                <div class="device-spec-table">
+                  <div class="spec-row">
+                    <span class="spec-label">Instance JID</span>
+                    <span id="instance-jid-val" class="spec-value mono-val"
+                      >—</span
+                    >
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">Session Storage</span>
+                    <span id="session-storage-val" class="spec-value mono-val"
+                      >./data/auth_info</span
+                    >
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">Watchdog Guard</span>
+                    <span class="spec-value badge-active"
+                      >Active (60s check)</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Inline Confirmation Drawer for Unlink (No window.confirm) -->
+                <div
+                  id="unlink-confirm-drawer"
+                  class="inline-confirm-drawer"
+                  style="display: none"
+                >
+                  <div class="confirm-message-group">
                     <svg
-                      width="20"
-                      height="20"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
                     >
                       <path
-                        d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"
+                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
                       ></path>
-                      <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                      <line x1="12" y1="9" x2="12" y2="13"></line>
+                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
+                    <span
+                      >Unlink this device? WebSocket session will close
+                      immediately.</span
+                    >
                   </div>
-                  <span class="pipeline-step-badge">Stage 3</span>
+                  <div class="confirm-btn-group">
+                    <button
+                      id="btn-cancel-unlink"
+                      class="btn btn-ghost btn-xs"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      id="btn-confirm-unlink"
+                      class="btn btn-danger btn-xs"
+                      type="button"
+                    >
+                      Confirm Unlink
+                    </button>
+                  </div>
                 </div>
-                <h3 class="pipeline-card-title">Embedded Baileys Engine</h3>
-                <p class="pipeline-card-desc">
-                  Translates JSON payloads into binary WebSocket protocol
-                  packets connected to WhatsApp multi-device.
-                </p>
-                <span class="pipeline-tech-tag">Direct WebSocket Link</span>
+
+                <div class="card-footer-actions">
+                  <button
+                    id="btn-logout-device"
+                    class="btn btn-danger btn-sm"
+                    type="button"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Unlink / Disconnect</span>
+                  </button>
+                </div>
               </div>
 
-              <div class="pipeline-card">
-                <div class="pipeline-card-header">
-                  <div class="pipeline-card-icon">
+              <!-- DISCONNECTED STATE VIEW WITH PAIRING MODES -->
+              <div id="view-disconnected" class="connection-view-state">
+                <div
+                  class="segmented-control"
+                  role="tablist"
+                  aria-label="WhatsApp pairing method"
+                >
+                  <button
+                    id="tab-btn-qr"
+                    class="segment-btn active"
+                    role="tab"
+                    aria-selected="true"
+                    type="button"
+                  >
                     <svg
-                      width="20"
-                      height="20"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="3" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="14" width="7" height="7"></rect>
+                      <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Scan QR Code</span>
+                  </button>
+                  <button
+                    id="tab-btn-phone"
+                    class="segment-btn"
+                    role="tab"
+                    aria-selected="false"
+                    type="button"
+                  >
+                    <svg
+                      width="15"
+                      height="15"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -555,343 +488,353 @@
                         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                       ></path>
                     </svg>
-                  </div>
-                  <span class="pipeline-step-badge">Stage 4</span>
+                    <span>Phone Pairing Code</span>
+                  </button>
                 </div>
-                <h3 class="pipeline-card-title">WhatsApp Recipient</h3>
-                <p class="pipeline-card-desc">
-                  The message or OTP arrives on the recipient's phone instantly,
-                  triggering webhook callbacks.
-                </p>
-                <span class="pipeline-tech-tag">Sub-Second Delivery</span>
+
+                <!-- TAB 1: QR CODE -->
+                <div id="pane-qr" class="pairing-pane active">
+                  <div class="pairing-instructions">
+                    <ol class="ordered-steps">
+                      <li>Open <strong>WhatsApp</strong> on your phone.</li>
+                      <li>
+                        Tap <strong>Settings</strong> &rarr;
+                        <strong>Linked Devices</strong> &rarr;
+                        <strong>Link a Device</strong>.
+                      </li>
+                      <li>Point your phone camera at the QR code below:</li>
+                    </ol>
+                  </div>
+
+                  <div class="qr-canvas-wrapper">
+                    <div class="qr-frame">
+                      <img
+                        id="qr-display-image"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'/%3E"
+                        alt="WhatsApp Pairing QR Code"
+                        style="display: none"
+                      />
+                      <div id="qr-skeleton" class="qr-skeleton-state">
+                        <div class="spinner-beacon"></div>
+                        <span id="qr-status-msg"
+                          >Generating WhatsApp QR code...</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="qr-controls">
+                    <button
+                      id="btn-force-qr"
+                      class="btn btn-secondary btn-sm"
+                      type="button"
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="1 4 1 10 7 10"></polyline>
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                      </svg>
+                      <span>Request Fresh QR</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- TAB 2: PHONE NUMBER PAIRING CODE -->
+                <div id="pane-phone" class="pairing-pane" style="display: none">
+                  <div class="pairing-instructions">
+                    <p class="guide-text">
+                      Link without camera scan. Enter your phone number with
+                      country code to generate an 8-digit WhatsApp pairing
+                      passcode.
+                    </p>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="input-pairing-phone" class="field-label"
+                      >WhatsApp Phone Number</label
+                    >
+                    <div class="input-with-hint">
+                      <input
+                        type="tel"
+                        id="input-pairing-phone"
+                        class="text-input"
+                        placeholder="e.g. 201012345678 or 15551234567"
+                      />
+                      <span class="field-hint"
+                        >Country code + number (digits only, no spaces or plus
+                        signs).</span
+                      >
+                    </div>
+                  </div>
+
+                  <button
+                    id="btn-request-pairing-code"
+                    class="btn btn-primary btn-block"
+                    type="button"
+                  >
+                    <span>Generate 8-Digit Code</span>
+                  </button>
+
+                  <div
+                    id="pairing-code-result"
+                    class="pairing-code-banner"
+                    style="display: none"
+                  >
+                    <span class="banner-sublabel"
+                      >Your WhatsApp 8-Character Pairing Code</span
+                    >
+                    <div class="code-copy-row">
+                      <span id="display-pairing-code" class="huge-code-text"
+                        >----</span
+                      >
+                      <button
+                        id="btn-copy-pairing-code"
+                        class="btn btn-ghost btn-sm"
+                        type="button"
+                        title="Copy pairing code"
+                      >
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <rect
+                            x="9"
+                            y="9"
+                            width="13"
+                            height="13"
+                            rx="2"
+                            ry="2"
+                          ></rect>
+                          <path
+                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                          ></path>
+                        </svg>
+                        <span>Copy</span>
+                      </button>
+                    </div>
+                    <div class="pairing-steps-alert">
+                      <span class="alert-title"
+                        >How to enter on your phone:</span
+                      >
+                      <p>
+                        In WhatsApp &rarr;
+                        <strong>Linked Devices</strong> &rarr;
+                        <strong>Link a Device</strong> &rarr; tap
+                        <strong>"Link with phone number instead"</strong> at
+                        bottom and type this code.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
 
-      <!-- Section 3: Core Features -->
-      <section class="section" id="features">
-        <div class="container">
-          <div class="section-head">
-            <h2 class="section-title">Engineered for Reliability</h2>
-            <p class="section-lead">
-              Everything needed to run automated WhatsApp messaging in
-              production with confidence.
-            </p>
-          </div>
-
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-card-header">
-                <svg
-                  class="feature-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                  ></path>
-                </svg>
-                <h3 class="feature-title">Text &amp; Media Dispatch</h3>
+            <!-- CARD 2: API TOKEN STUDIO -->
+            <section class="cockpit-card" id="card-tokens">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-icon-frame" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 2l-2 2m-1-1l-3 3m1 1l-2 2-4-4 2-2 4 4zm-7 7l-5.5 5.5a2.121 2.121 0 0 1-3 0 2.121 2.121 0 0 1 0-3L10 8l4 4z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="card-heading">API Tokens & Governance</h2>
+                    <p class="card-subheading">
+                      Generate and revoke cryptographically secure bearer keys.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p class="feature-desc">
-                Send plain text, images, PDF documents, and audio attachments
-                with custom captions and automatic MIME detection.
-              </p>
-            </div>
 
-            <div class="feature-card">
-              <div class="feature-card-header">
-                <svg
-                  class="feature-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-                <h3 class="feature-title">Cryptographic OTP Engine</h3>
-              </div>
-              <p class="feature-desc">
-                Built-in 6-digit one-time passcodes with in-memory expiration
-                tracking, phone-level rate limits, and constant-time validation.
-              </p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-card-header">
-                <svg
-                  class="feature-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect
-                    x="3"
-                    y="11"
-                    width="18"
-                    height="11"
-                    rx="2"
-                    ry="2"
-                  ></rect>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-                <h3 class="feature-title">Zero-Trust Admin Security</h3>
-              </div>
-              <p class="feature-desc">
-                Dual-tier authorization: Master Admin Key protects pairing
-                sessions and tokens, while granular Client Tokens handle
-                dispatches.
-              </p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-card-header">
-                <svg
-                  class="feature-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M21 2l-2 2m-1-1l-3 3m1 1l-2 2-4-4 2-2 4 4zm-7 7l-5.5 5.5a2.121 2.121 0 0 1-3 0 2.121 2.121 0 0 1 0-3L10 8l4 4z"
-                  ></path>
-                </svg>
-                <h3 class="feature-title">API Token Governance</h3>
-              </div>
-              <p class="feature-desc">
-                Create labeled client tokens (<code class="code-inline"
-                  >wa_live_...</code
-                >), monitor token creation dates, and revoke compromised keys
-                instantly.
-              </p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-card-header">
-                <svg
-                  class="feature-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <h3 class="feature-title">Automatic Socket Watchdog</h3>
-              </div>
-              <p class="feature-desc">
-                Continuous background health checks detect dropped connections
-                and automatically re-establish the WhatsApp socket seamlessly.
-              </p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-card-header">
-                <svg
-                  class="feature-icon"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  ></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <h3 class="feature-title">Outbound Webhook Dispatch</h3>
-              </div>
-              <p class="feature-desc">
-                Forward delivery receipts and incoming customer WhatsApp
-                messages straight to your application's webhook listener.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 4: Interactive API Playground / Code Spec -->
-      <section class="section" id="api">
-        <div class="container">
-          <div class="section-head">
-            <h2 class="section-title">Interactive API Reference</h2>
-            <p class="section-lead">
-              Send messages in seconds. Switch between languages and endpoints
-              to view ready-to-run examples.
-            </p>
-          </div>
-
-          <div class="playground-shell">
-            <div class="terminal-header">
-              <div
-                class="terminal-tabs"
-                role="tablist"
-                aria-label="Programming Language"
+              <!-- Quick Token Generator Form -->
+              <form
+                id="form-create-token"
+                class="token-create-strip"
+                onsubmit="
+                  event.preventDefault();
+                  handleGenerateToken();
+                "
               >
-                <button class="term-tab active" data-lang="curl" role="tab">
-                  cURL
-                </button>
-                <button class="term-tab" data-lang="javascript" role="tab">
-                  JavaScript
-                </button>
-                <button class="term-tab" data-lang="python" role="tab">
-                  Python
-                </button>
-                <button class="term-tab" data-lang="go" role="tab">Go</button>
-              </div>
-
-              <div
-                class="terminal-endpoint-selector"
-                role="tablist"
-                aria-label="API Endpoints"
-              >
-                <button class="ep-tab active" data-ep="send" role="tab">
-                  POST /messages/send
-                </button>
-                <button class="ep-tab" data-ep="media" role="tab">
-                  POST /messages/send-media
-                </button>
-                <button class="ep-tab" data-ep="otpSend" role="tab">
-                  POST /otp/send
-                </button>
-                <button class="ep-tab" data-ep="otpVerify" role="tab">
-                  POST /otp/verify
-                </button>
-              </div>
-            </div>
-
-            <div class="terminal-body">
-              <button
-                id="btn-copy-code"
-                class="btn-copy-code"
-                type="button"
-                aria-label="Copy code snippet"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path
-                    d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                  ></path>
-                </svg>
-                <span class="copy-label">Copy Code</span>
-              </button>
-              <pre
-                class="code-pre"
-              ><code id="code-display">// Loading API snippet...</code></pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 5: Fork & Self-Host Guide -->
-      <section class="section" id="deploy">
-        <div class="container">
-          <div class="section-head">
-            <h2 class="section-title">Fork &amp; Deploy Your Own Gateway</h2>
-            <p class="section-lead">
-              Host your own private WhatsApp gateway on your infrastructure with
-              a single click or command.
-            </p>
-          </div>
-
-          <div class="deploy-container">
-            <div
-              class="deploy-tabs-nav"
-              role="tablist"
-              aria-label="Deployment Platforms"
-            >
-              <button
-                class="deploy-nav-btn active"
-                data-target="vps"
-                role="tab"
-              >
-                <span>Virtual Private Server (VPS)</span>
-                <span class="deploy-badge">Linux Host</span>
-              </button>
-              <button class="deploy-nav-btn" data-target="docker" role="tab">
-                <span>Docker Container</span>
-                <span class="deploy-badge">Self-Hosted</span>
-              </button>
-              <button class="deploy-nav-btn" data-target="paas" role="tab">
-                <span>Managed Cloud Platform</span>
-                <span class="deploy-badge">Container PaaS</span>
-              </button>
-              <button class="deploy-nav-btn" data-target="local" role="tab">
-                <span>Local Workstation</span>
-                <span class="deploy-badge">Node.js 20+</span>
-              </button>
-            </div>
-
-            <div class="deploy-pane">
-              <h3 id="deploy-title" class="deploy-pane-title">
-                Deploy on Virtual Private Server (VPS / Linux Host)
-              </h3>
-              <p id="deploy-desc" class="deploy-pane-desc">
-                Host on any Linux VPS or virtual machine with persistent local
-                disk storage and automatic process management.
-              </p>
-
-              <div class="deploy-code-block">
-                <pre><code id="deploy-code"># 1. Clone your forked repository onto your VPS
-git clone https://github.com/YOUR_USERNAME/zagel.git
-cd zagel &amp;&amp; npm install
-
-# 2. Configure environment
-cp .env.example .env
-# Edit .env with your secure ADMIN_API_KEY and PORT
-
-# 3. Start with process manager (PM2) for 24/7 background persistence
-npm install -g pm2
-pm2 start src/server.js --name zagel
-pm2 startup &amp;&amp; pm2 save</code></pre>
-              </div>
-
-              <div class="deploy-actions">
+                <input
+                  type="text"
+                  id="token-label-input"
+                  class="text-input"
+                  placeholder="Token name (e.g. CRM Service, Mobile Backend)"
+                  required
+                />
                 <button
-                  id="btn-copy-deploy"
-                  class="btn btn-secondary btn-sm"
+                  id="btn-submit-create-token"
+                  class="btn btn-primary btn-sm"
+                  type="submit"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  <span>Generate Key</span>
+                </button>
+              </form>
+
+              <!-- Newly Created Token Modal/Notice -->
+              <div
+                id="new-token-alert"
+                class="new-token-callout"
+                style="display: none"
+              >
+                <div class="callout-header">
+                  <span class="callout-badge">New API Key Created</span>
+                  <span class="callout-warning"
+                    >Copy now; secret is not shown again.</span
+                  >
+                </div>
+                <div class="token-display-box">
+                  <code id="new-token-val" class="token-code-text"
+                    >wa_live_...</code
+                  >
+                  <div class="token-action-buttons">
+                    <button
+                      id="btn-copy-new-token"
+                      class="btn btn-secondary btn-xs"
+                      type="button"
+                    >
+                      Copy Key
+                    </button>
+                    <button
+                      id="btn-use-new-token"
+                      class="btn btn-accent btn-xs"
+                      type="button"
+                    >
+                      Use in Session
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tokens List Table -->
+              <div class="table-container tokens-table-wrap">
+                <table
+                  class="tokens-table"
+                  aria-label="List of active API tokens"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Masked Key</th>
+                      <th scope="col">Created</th>
+                      <th scope="col" class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tokens-table-body">
+                    <tr>
+                      <td colspan="4" class="table-empty-row">
+                        Loading active tokens...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <!-- RIGHT COLUMN: INTERACTIVE API TESTING STUDIO -->
+          <div class="grid-column">
+            <!-- CARD 3: INTERACTIVE API TESTING STUDIO -->
+            <section class="cockpit-card" id="card-playground">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <div class="card-icon-frame" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="card-heading">API Testing Studio</h2>
+                    <p class="card-subheading">
+                      Execute live requests and generate multi-language client
+                      snippets.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Operational Subtabs: Text, Media, OTP -->
+              <div
+                class="segmented-control"
+                role="tablist"
+                aria-label="API dispatch mode"
+              >
+                <button
+                  id="tab-mode-text"
+                  class="segment-btn active"
+                  role="tab"
+                  aria-selected="true"
+                  type="button"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    ></path>
+                  </svg>
+                  <span>Text Message</span>
+                </button>
+                <button
+                  id="tab-mode-media"
+                  class="segment-btn"
+                  role="tab"
+                  aria-selected="false"
                   type="button"
                 >
                   <svg
@@ -905,26 +848,25 @@ pm2 startup &amp;&amp; pm2 save</code></pre>
                     stroke-linejoin="round"
                   >
                     <rect
-                      x="9"
-                      y="9"
-                      width="13"
-                      height="13"
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
                       rx="2"
                       ry="2"
                     ></rect>
-                    <path
-                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                    ></path>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
                   </svg>
-                  <span class="copy-deploy-label">Copy Command</span>
+                  <span>Media Attachment</span>
                 </button>
-                <a
-                  href="https://github.com/Abdelrahman0xFF/zagel/fork"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-primary btn-sm"
+                <button
+                  id="tab-mode-otp"
+                  class="segment-btn"
+                  role="tab"
+                  aria-selected="false"
+                  type="button"
                 >
-                  <span>Fork on GitHub</span>
                   <svg
                     width="14"
                     height="14"
@@ -935,246 +877,542 @@ pm2 startup &amp;&amp; pm2 save</code></pre>
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                    ></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                    <rect
+                      x="3"
+                      y="11"
+                      width="18"
+                      height="11"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                   </svg>
-                </a>
+                  <span>OTP Flow</span>
+                </button>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Section 6: FAQ -->
-      <section class="section" id="faq">
-        <div class="container">
-          <div class="section-head center">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-lead">
-              Answers to common questions about running, pairing, and
-              self-hosting Zagel.
-            </p>
-          </div>
-
-          <div class="faq-list">
-            <details class="faq-item" open>
-              <summary class="faq-summary">
-                <span
-                  >What makes Zagel different from other WhatsApp API
-                  gateways?</span
+              <!-- FORM 1: SEND TEXT MESSAGE -->
+              <div id="pane-send-text" class="playground-pane active">
+                <div class="form-field">
+                  <label for="text-msg-phone" class="field-label"
+                    >Recipient Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    id="text-msg-phone"
+                    class="text-input"
+                    placeholder="e.g. 201012345678 (country code + digits)"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="text-msg-body" class="field-label"
+                    >Message Content</label
+                  >
+                  <textarea
+                    id="text-msg-body"
+                    class="textarea-input"
+                    rows="3"
+                    placeholder="Type WhatsApp message here..."
+                  ></textarea>
+                </div>
+                <button
+                  id="btn-submit-text"
+                  class="btn btn-primary btn-block"
+                  type="button"
                 >
-                <svg
-                  class="faq-chevron"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                Zagel is designed with zero external database dependencies.
-                While other platforms mandate complex setups with PostgreSQL,
-                Redis, and multi-service Docker Compose networks, Zagel runs
-                entirely within a single Node.js or Docker process. It stores
-                sessions reliably using atomic writes on disk, features an
-                integrated Developer Cockpit, and can be deployed in minutes to
-                any VPS, Docker host, or cloud container platform.
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <span>Dispatch Text Message</span>
+                </button>
               </div>
-            </details>
 
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span>How do I pair my WhatsApp account with Zagel?</span>
-                <svg
-                  class="faq-chevron"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                Open the Developer Cockpit at
-                <code class="code-inline">/dashboard</code> and unlock it using
-                your Master Admin Key. Zagel will display either a high-contrast
-                QR code or let you generate an 8-digit phone pairing code. Open
-                WhatsApp on your mobile phone, go to
-                <strong>Linked Devices &gt; Link a Device</strong>, and scan the
-                QR code or enter the pairing code. Your session is saved
-                automatically and stays active indefinitely.
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span>How does authentication and security work?</span>
-                <svg
-                  class="faq-chevron"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                Zagel uses a dual-tier zero-trust security architecture. The
-                Master Admin Key (<code class="code-inline">ADMIN_API_KEY</code
-                >) is required to view pairing codes, access the full cockpit,
-                generate tokens, and clear audit feeds. For everyday application
-                calls (sending messages, verifying OTPs), you generate scoped
-                Client Tokens (<code class="code-inline">wa_live_...</code>)
-                validated using timing-safe SHA-256 string comparisons to
-                prevent timing attacks.
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span
-                  >Can I fork this repository and brand it for my own
-                  business?</span
-                >
-                <svg
-                  class="faq-chevron"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                Absolutely! Zagel is licensed under the permissive MIT license.
-                You can fork it, customize the branding or UI in
-                <code class="code-inline">src/public/</code>, and host it as
-                your company's private gateway microservice. The public landing
-                page at <code class="code-inline">/</code> serves as an
-                introduction and API reference, while your internal team
-                accesses <code class="code-inline">/dashboard</code>.
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span
-                  >How can I make the root URL go directly to the dashboard
-                  instead of the landing page?</span
-                >
-                <svg
-                  class="faq-chevron"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                If you prefer having the Developer Cockpit served at
-                <code class="code-inline">/</code> for a private internal
-                deployment, simply set the environment variable
-                <code class="code-inline">DEFAULT_ROOT=dashboard</code> in your
-                <code class="code-inline">.env</code> file or cloud container
-                environment settings.
-              </div>
-            </details>
-          </div>
-
-          <div class="bottom-cta-banner">
-            <h2 class="bottom-cta-title">
-              Ready to Automate WhatsApp Messaging?
-            </h2>
-            <p class="bottom-cta-desc">
-              Launch the Developer Cockpit to pair your device in 30 seconds, or
-              fork the repository to deploy your own instance.
-            </p>
-            <div class="hero-cta-group" style="margin-bottom: 0">
-              <a href="/dashboard" class="btn btn-primary btn-lg">
-                <span>Open Developer Cockpit</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </a>
-              <a
-                href="https://github.com/Abdelrahman0xFF/zagel"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary btn-lg"
+              <!-- FORM 2: SEND MEDIA MESSAGE -->
+              <div
+                id="pane-send-media"
+                class="playground-pane"
+                style="display: none"
               >
-                <span>Star on GitHub</span>
-              </a>
-            </div>
+                <div class="form-grid-2col">
+                  <div class="form-field">
+                    <label for="media-msg-phone" class="field-label"
+                      >Recipient Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      id="media-msg-phone"
+                      class="text-input"
+                      placeholder="e.g. 201012345678"
+                    />
+                  </div>
+                  <div class="form-field">
+                    <label for="media-msg-type" class="field-label"
+                      >Attachment Type</label
+                    >
+                    <select id="media-msg-type" class="select-input">
+                      <option value="image" selected>
+                        Image (JPEG, PNG, WebP)
+                      </option>
+                      <option value="document">Document / PDF</option>
+                      <option value="audio">Audio Voice Note</option>
+                      <option value="video">Video (MP4)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="media-msg-url" class="field-label"
+                    >Media File URL</label
+                  >
+                  <input
+                    type="url"
+                    id="media-msg-url"
+                    class="text-input mono-input"
+                    placeholder="https://example.com/invoice.pdf or image URL"
+                  />
+                </div>
+                <div class="form-field" id="field-media-caption">
+                  <label for="media-msg-caption" class="field-label"
+                    >Caption or Document Name</label
+                  >
+                  <input
+                    type="text"
+                    id="media-msg-caption"
+                    class="text-input"
+                    placeholder="e.g. Your monthly invoice or photo caption"
+                  />
+                </div>
+                <button
+                  id="btn-submit-media"
+                  class="btn btn-primary btn-block"
+                  type="button"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                    ></path>
+                  </svg>
+                  <span>Dispatch Media Attachment</span>
+                </button>
+              </div>
+
+              <!-- FORM 3: OTP VERIFICATION FLOW -->
+              <div
+                id="pane-send-otp"
+                class="playground-pane"
+                style="display: none"
+              >
+                <div class="form-grid-2col">
+                  <div class="form-field">
+                    <label for="otp-recipient-phone" class="field-label"
+                      >Recipient Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      id="otp-recipient-phone"
+                      class="text-input"
+                      placeholder="e.g. 201012345678"
+                    />
+                  </div>
+                  <div class="form-field">
+                    <label for="otp-app-title" class="field-label"
+                      >Application Name</label
+                    >
+                    <input
+                      type="text"
+                      id="otp-app-title"
+                      class="text-input"
+                      value="My Project"
+                      placeholder="e.g. SaaS Portal"
+                    />
+                  </div>
+                </div>
+                <button
+                  id="btn-submit-otp"
+                  class="btn btn-primary btn-block"
+                  type="button"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="3"
+                      y="11"
+                      width="18"
+                      height="11"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <span>Send One-Time Passcode</span>
+                </button>
+
+                <!-- OTP DIGITS ENTRY (REVEALED AFTER SEND) -->
+                <div
+                  id="otp-verify-stage"
+                  class="otp-verify-block"
+                  style="display: none"
+                >
+                  <span class="verify-instruction"
+                    >Type the 6-digit passcode received on WhatsApp:</span
+                  >
+                  <div class="otp-pin-grid">
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-digit"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      autocomplete="one-time-code"
+                      aria-label="OTP Digit 1"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-digit"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      aria-label="OTP Digit 2"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-digit"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      aria-label="OTP Digit 3"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-digit"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      aria-label="OTP Digit 4"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-digit"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      aria-label="OTP Digit 5"
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      class="pin-digit"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      aria-label="OTP Digit 6"
+                    />
+                  </div>
+                  <button
+                    id="btn-submit-verify-otp"
+                    class="btn btn-accent btn-block"
+                    type="button"
+                  >
+                    <span>Verify Passcode</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- UNIFIED CONSOLE PANEL: RESPONSE INSPECTOR & CLIENT SNIPPETS -->
+              <div class="console-section">
+                <div class="console-header">
+                  <div class="console-tab-group" role="tablist">
+                    <button
+                      id="tab-console-response"
+                      class="console-tab-btn active"
+                      role="tab"
+                      aria-selected="true"
+                      type="button"
+                    >
+                      <span>API Response</span>
+                      <span
+                        id="response-status-badge"
+                        class="response-status-pill"
+                        style="display: none"
+                        >200 OK</span
+                      >
+                      <span
+                        id="response-latency-badge"
+                        class="response-latency-pill tabular-num"
+                        style="display: none"
+                        >0ms</span
+                      >
+                    </button>
+                    <button
+                      id="tab-console-snippets"
+                      class="console-tab-btn"
+                      role="tab"
+                      aria-selected="false"
+                      type="button"
+                    >
+                      <span>Integration Code</span>
+                    </button>
+                  </div>
+                  <div class="console-actions">
+                    <div
+                      id="snippet-lang-selector"
+                      class="snippet-lang-tabs"
+                      role="tablist"
+                      style="display: none"
+                    >
+                      <button
+                        class="lang-tab active"
+                        data-lang="curl"
+                        type="button"
+                      >
+                        cURL
+                      </button>
+                      <button class="lang-tab" data-lang="python" type="button">
+                        Python
+                      </button>
+                      <button class="lang-tab" data-lang="nodejs" type="button">
+                        Node.js
+                      </button>
+                      <button class="lang-tab" data-lang="go" type="button">
+                        Go
+                      </button>
+                    </div>
+                    <button
+                      id="btn-copy-response"
+                      class="btn btn-ghost btn-xs"
+                      type="button"
+                      title="Copy response JSON"
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <rect
+                          x="9"
+                          y="9"
+                          width="13"
+                          height="13"
+                          rx="2"
+                          ry="2"
+                        ></rect>
+                        <path
+                          d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                        ></path>
+                      </svg>
+                      <span>Copy JSON</span>
+                    </button>
+                    <button
+                      id="btn-copy-snippet"
+                      class="btn btn-ghost btn-xs"
+                      type="button"
+                      title="Copy code snippet"
+                      style="display: none"
+                    >
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <rect
+                          x="9"
+                          y="9"
+                          width="13"
+                          height="13"
+                          rx="2"
+                          ry="2"
+                        ></rect>
+                        <path
+                          d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                        ></path>
+                      </svg>
+                      <span>Copy Code</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- PANE 1: RESPONSE INSPECTOR -->
+                <div id="pane-console-response" class="console-pane active">
+                  <pre
+                    id="response-output-box"
+                    class="code-terminal"
+                    tabindex="0"
+                  >
+Waiting for API dispatch...</pre
+                  >
+                </div>
+
+                <!-- PANE 2: INTEGRATION SNIPPETS -->
+                <div
+                  id="pane-console-snippets"
+                  class="console-pane"
+                  style="display: none"
+                >
+                  <pre
+                    id="code-snippet-box"
+                    class="code-terminal"
+                    tabindex="0"
+                  ></pre>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-      </section>
-    </main>
 
-    <!-- Site Footer -->
-    <footer class="site-footer" id="footer">
-      <div class="container">
-        <div class="footer-minimal-main">
-          <div class="footer-brand-wrap">
-            <a href="/" class="brand-link" aria-label="Zagel Home">
-              <div class="brand-icon">
-                <img
-                  src="/favicon.svg"
-                  alt="Zagel Logo"
-                  width="28"
-                  height="28"
-                />
+        <!-- LOWER OBSERVABILITY DECK: FULL-WIDTH LIVE DISPATCH & AUDIT FEED -->
+        <section class="cockpit-card card-full-width" id="card-activity">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="card-icon-frame" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
               </div>
-              <div class="brand-title-wrap">
-                <span class="brand-title">Zagel</span>
-                <span class="brand-badge">v2.0</span>
+              <div>
+                <div class="card-title-meta-row">
+                  <h2 class="card-heading">Live Dispatch & Audit Feed</h2>
+                  <span
+                    id="activity-stats-summary"
+                    class="stats-summary-pill tabular-num"
+                    >0 total</span
+                  >
+                </div>
+                <p class="card-subheading">
+                  Real-time trace of recent WhatsApp dispatches, delivery
+                  receipts, and verification results.
+                </p>
               </div>
-            </a>
-            <span class="footer-tagline"
-              >Self-Hosted WhatsApp REST API Gateway</span
-            >
+            </div>
+            <div class="card-action-group">
+              <button
+                id="activity-live-toggle"
+                class="btn btn-ghost btn-sm btn-live-toggle active"
+                type="button"
+                title="Toggle automatic polling"
+              >
+                <span class="live-pulse-dot"></span>
+                <span id="live-toggle-label">Live Polling</span>
+              </button>
+              <button
+                id="btn-refresh-activity"
+                class="btn btn-ghost btn-sm"
+                type="button"
+                title="Refresh activity feed"
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+                <span>Refresh</span>
+              </button>
+              <button
+                id="btn-clear-activity"
+                class="btn btn-ghost btn-sm btn-ghost-danger"
+                type="button"
+              >
+                Clear Feed
+              </button>
+            </div>
           </div>
-          <nav class="footer-nav" aria-label="Footer Navigation">
-            <a href="/dashboard" class="footer-nav-link footer-nav-highlight">
+
+          <!-- Inline Confirmation Drawer for Clear All (No window.confirm) -->
+          <div
+            id="clear-confirm-drawer"
+            class="inline-confirm-drawer"
+            style="display: none"
+          >
+            <div class="confirm-message-group">
               <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                ></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+              <span
+                >Permanently clear all activity records from gateway audit
+                storage?</span
+              >
+            </div>
+            <div class="confirm-btn-group">
+              <button
+                id="btn-cancel-clear-activity"
+                class="btn btn-ghost btn-xs"
+                type="button"
+              >
+                Cancel
+              </button>
+              <button
+                id="btn-confirm-clear-activity"
+                class="btn btn-danger btn-xs"
+                type="button"
+              >
+                Confirm Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Filter & Search Toolbar -->
+          <div class="activity-toolbar">
+            <div class="toolbar-search-box">
+              <svg
+                class="search-icon"
                 width="14"
                 height="14"
                 viewBox="0 0 24 24"
@@ -1184,41 +1422,293 @@ pm2 startup &amp;&amp; pm2 save</code></pre>
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-                <polyline points="9 18 15 12 9 6"></polyline>
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <span>Cockpit</span>
-            </a>
-            <a href="#api" class="footer-nav-link">API Docs</a>
-            <a href="#deploy" class="footer-nav-link">Deploy</a>
-            <a
-              href="/api/health"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-nav-link"
-              >Health</a
-            >
-            <a
-              href="https://github.com/Abdelrahman0xFF/zagel"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-nav-link"
-              >GitHub</a
-            >
-          </nav>
-        </div>
+              <input
+                type="text"
+                id="activity-search-input"
+                class="text-input toolbar-search-input"
+                placeholder="Search by recipient, message text, error or ID..."
+              />
+              <button
+                id="btn-clear-search"
+                class="btn-clear-search"
+                type="button"
+                title="Clear search"
+                style="display: none"
+              >
+                &times;
+              </button>
+            </div>
 
-        <div class="footer-minimal-bottom">
-          <div class="footer-meta">
-            <span>&copy; 2026 Zagel (زاجل).</span>
-            <span>MIT License.</span>
-            <span class="footer-meta-sep">•</span>
-            <span>Created by 3ATEF</span>
+            <div class="toolbar-filters">
+              <div class="filter-group">
+                <label for="activity-type-filter" class="filter-label"
+                  >Type:</label
+                >
+                <select
+                  id="activity-type-filter"
+                  class="select-input select-filter"
+                >
+                  <option value="ALL" selected>All Types</option>
+                  <option value="TEXT">Text Message</option>
+                  <option value="MEDIA">Media</option>
+                  <option value="OTP_SEND">OTP Send</option>
+                  <option value="OTP_VERIFY">OTP Verify</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="activity-status-filter" class="filter-label"
+                  >Status:</label
+                >
+                <select
+                  id="activity-status-filter"
+                  class="select-input select-filter"
+                >
+                  <option value="ALL" selected>All Statuses</option>
+                  <option value="SENT">Sent / Success</option>
+                  <option value="VERIFIED">Verified</option>
+                  <option value="FAILED">Failed</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="activity-page-size" class="filter-label"
+                  >Show:</label
+                >
+                <select
+                  id="activity-page-size"
+                  class="select-input select-filter"
+                >
+                  <option value="10" selected>10 / page</option>
+                  <option value="25">25 / page</option>
+                  <option value="50">50 / page</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <a href="#hero" class="footer-back-top" title="Scroll to top of page">
-            <span>Top</span>
+
+          <!-- Activity Data Table -->
+          <div class="table-container activity-table-wrap">
+            <table
+              class="activity-table"
+              aria-label="Recent dispatch activities"
+            >
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 130px">Time</th>
+                  <th scope="col" style="width: 110px">Type</th>
+                  <th scope="col" style="width: 170px">Recipient</th>
+                  <th scope="col" style="width: 110px">Status</th>
+                  <th scope="col">Payload Summary / Error Trace</th>
+                  <th scope="col" class="text-right" style="width: 80px">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="activity-table-body">
+                <tr>
+                  <td colspan="6" class="table-empty-row">
+                    Loading gateway dispatches...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Activity Pagination Deck -->
+          <div class="activity-pagination-bar" id="activity-pagination-bar">
+            <div class="pagination-info">
+              <span id="activity-pagination-info" class="tabular-num"
+                >Showing 0 of 0 dispatches</span
+              >
+            </div>
+            <div class="pagination-controls" id="activity-pagination-controls">
+              <button
+                id="btn-first-page"
+                class="btn btn-ghost btn-xs btn-pag-nav"
+                type="button"
+                title="First Page"
+                disabled
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="11 17 6 12 11 7"></polyline>
+                  <polyline points="18 17 13 12 18 7"></polyline>
+                </svg>
+              </button>
+              <button
+                id="btn-prev-page"
+                class="btn btn-ghost btn-xs btn-pag-nav"
+                type="button"
+                title="Previous Page"
+                disabled
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <span>Prev</span>
+              </button>
+              <div id="activity-page-numbers" class="pagination-numbers">
+                <button class="btn-page-number active" type="button">1</button>
+              </div>
+              <button
+                id="btn-next-page"
+                class="btn btn-ghost btn-xs btn-pag-nav"
+                type="button"
+                title="Next Page"
+                disabled
+              >
+                <span>Next</span>
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+              <button
+                id="btn-last-page"
+                class="btn btn-ghost btn-xs btn-pag-nav"
+                type="button"
+                title="Last Page"
+                disabled
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="13 17 18 12 13 7"></polyline>
+                  <polyline points="6 17 11 12 6 7"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Cockpit Footer -->
+      <footer class="cockpit-footer">
+        <div class="footer-left">
+          <span>Zagel</span> &bull;
+          <span>WhatsApp REST API Gateway</span> &bull;
+          <span>Standalone Single Container Architecture</span>
+        </div>
+        <div class="footer-right">
+          <a
+            href="/api/health"
+            target="_blank"
+            rel="noopener"
+            class="footer-link"
+            >Health Endpoint</a
+          >
+          <a
+            href="https://github.com/Abdelrahman0xFF/whatsapp-gateway"
+            target="_blank"
+            rel="noopener"
+            class="footer-link"
+            >Repository & Docs</a
+          >
+        </div>
+      </footer>
+    </div>
+
+    <!-- Admin Security Gate Modal Backdrop -->
+    <div
+      id="admin-gate-overlay"
+      class="admin-gate-overlay"
+      style="display: none"
+    >
+      <div class="admin-gate-card">
+        <div class="admin-gate-icon-frame">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h2 class="admin-gate-title">Admin Authentication Required</h2>
+        <p class="admin-gate-desc">
+          This Zagel instance is secured. Enter your Master Admin Key to unlock
+          the developer cockpit, manage tokens, and view session telemetry.
+        </p>
+
+        <form id="form-admin-login">
+          <div class="admin-gate-input-wrap">
+            <input
+              type="password"
+              id="input-admin-key"
+              class="text-input mono-input"
+              placeholder="Enter ADMIN_API_KEY or adm_live_..."
+              autocomplete="current-password"
+              required
+            />
+            <button
+              id="btn-toggle-admin-key-vis"
+              class="btn-input-icon"
+              type="button"
+              title="Toggle visibility"
+            >
+              <svg
+                id="admin-eye-icon"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <div
+            id="admin-gate-error"
+            class="admin-gate-error"
+            style="display: none"
+          ></div>
+          <button
+            id="btn-admin-unlock"
+            class="btn btn-primary btn-block"
+            type="submit"
+          >
             <svg
-              width="12"
-              height="12"
+              width="15"
+              height="15"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -1226,15 +1716,22 @@ pm2 startup &amp;&amp; pm2 save</code></pre>
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <line x1="12" y1="19" x2="12" y2="5"></line>
-              <polyline points="5 12 12 5 19 12"></polyline>
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
             </svg>
-          </a>
+            <span>Unlock Cockpit</span>
+          </button>
+        </form>
+
+        <div class="admin-gate-footer">
+          <small
+            >Configured via <code>ADMIN_API_KEY</code> environment secret or
+            auto-generated in server container logs.</small
+          >
         </div>
       </div>
-    </footer>
+    </div>
 
-    <!-- Landing Page Interactive Script -->
-    <script src="/js/landing.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>

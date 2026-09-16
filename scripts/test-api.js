@@ -49,49 +49,39 @@ async function runTests() {
       "GET /api/health returns 200 OK and protects privacy (no whitelistPhone, URI, or paths leaked)",
     );
 
-    // 2. Public SEO Landing page serves
-    const landingRes = await fetch(`${baseUrl}/`);
-    const landingHtml = await landingRes.text();
+    // 2. Developer Cockpit Web UI serves at root /
+    const cockpitRes = await fetch(`${baseUrl}/`);
+    const cockpitHtml = await cockpitRes.text();
     assert(
-      landingRes.status === 200 &&
-        landingHtml.includes("Zagel") &&
-        landingHtml.includes("What is Zagel?") &&
-        landingHtml.includes("schema.org"),
-      "GET / serves Zagel Public SEO Landing Page with structured data and architecture overview",
+      cockpitRes.status === 200 &&
+        cockpitHtml.includes("cockpit-shell") &&
+        cockpitHtml.includes("API Tokens"),
+      "GET / serves Zagel Developer Cockpit Web UI directly to developers",
     );
 
-    // 2b. Dedicated Developer Cockpit serves at /dashboard
+    // 2b. Aliases /dashboard and /cockpit also serve Developer Cockpit
     const dashboardRes = await fetch(`${baseUrl}/dashboard`);
-    const dashboardHtml = await dashboardRes.text();
     assert(
       dashboardRes.status === 200 &&
-        dashboardHtml.includes("cockpit-shell") &&
-        dashboardHtml.includes("API Tokens"),
-      "GET /dashboard serves Zagel Developer Cockpit Web UI",
+        (await dashboardRes.text()).includes("cockpit-shell"),
+      "GET /dashboard serves Developer Cockpit Web UI",
     );
 
-    // 2c. Cockpit redirect alias works
-    const cockpitAliasRes = await fetch(`${baseUrl}/cockpit`, {
-      redirect: "manual",
-    });
+    const cockpitAliasRes = await fetch(`${baseUrl}/cockpit`);
     assert(
-      cockpitAliasRes.status === 301 &&
-        cockpitAliasRes.headers.get("location") === "/dashboard",
-      "GET /cockpit 301 redirects to /dashboard",
+      cockpitAliasRes.status === 200 &&
+        (await cockpitAliasRes.text()).includes("cockpit-shell"),
+      "GET /cockpit serves Developer Cockpit Web UI",
     );
 
-    // 2d. SEO crawler assets serve
+    // 2c. Robots directive protects developers' private instances from crawlers
     const robotsRes = await fetch(`${baseUrl}/robots.txt`);
-    const sitemapRes = await fetch(`${baseUrl}/sitemap.xml`);
+    const robotsText = await robotsRes.text();
     assert(
       robotsRes.status === 200 &&
-        (await robotsRes.text()).includes("User-agent"),
-      "GET /robots.txt serves valid crawler rules",
-    );
-    assert(
-      sitemapRes.status === 200 &&
-        (await sitemapRes.text()).includes("<urlset"),
-      "GET /sitemap.xml serves valid sitemap XML",
+        robotsText.includes("User-agent") &&
+        robotsText.includes("Disallow: /"),
+      "GET /robots.txt shields private gateway instances from search engine crawlers",
     );
 
     // 2e. Favicon static assets serve

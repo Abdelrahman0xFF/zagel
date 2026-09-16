@@ -1,6 +1,2 @@
 User-agent: *
-Allow: /
-Allow: /dashboard
-Disallow: /api/
-
-Sitemap: https://zagel.abdelrahmanashraf.dev/sitemap.xml
+Disallow: /
