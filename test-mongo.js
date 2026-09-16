@@ -9,10 +9,10 @@ import { useMongoAuthState } from './src/config/mongoAuth.js';
 import app from './src/app.js';
 
 const TEST_MONGO_URI = 'mongodb://localhost:27017';
-const TEST_DB_NAME = 'whatsapp_gateway_test_suite';
+const TEST_DB_NAME = 'zagel_test_suite';
 
 async function runMongoTests() {
-  console.log('🧪 Starting WhatsApp Gateway MongoDB Integration Test Suite...\n');
+  console.log('🧪 Starting Zagel MongoDB Integration Test Suite...\n');
 
   let testsPassed = 0;
   let testsTotal = 0;

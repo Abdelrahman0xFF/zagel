@@ -1,8 +1,8 @@
 {
   "info": {
-    "_postman_id": "c1f7b022-83b6-4b89-a29d-whatsapp-gateway",
-    "name": "WhatsApp REST API Gateway",
-    "description": "Production Postman Collection for the WhatsApp REST API Gateway. Includes all endpoints for sending messages, rich media dispatch (images, documents, audio, video), bulk messaging, OTP verification, API token lifecycle management, webhooks, activity audit feed, QR & phone number pairing, and container health monitoring.",
+    "_postman_id": "c1f7b022-83b6-4b89-a29d-zagel",
+    "name": "Zagel — WhatsApp REST API Gateway",
+    "description": "Production Postman Collection for Zagel — the WhatsApp REST API Gateway and Developer Cockpit. Includes all endpoints for sending messages, rich media dispatch (images, documents, audio, video), bulk messaging, OTP verification, API token lifecycle management, webhooks, activity audit feed, QR & phone number pairing, and container health monitoring.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -66,7 +66,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"number\": \"{{recipientNumber}}\",\n  \"message\": \"Hello from WhatsApp REST Gateway! 🚀\"\n}"
+              "raw": "{\n  \"number\": \"{{recipientNumber}}\",\n  \"message\": \"Hello from Zagel! 🕊️\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/messages/send",

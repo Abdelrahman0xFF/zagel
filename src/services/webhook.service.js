@@ -113,7 +113,7 @@ class WebhookService {
     const payloadString = JSON.stringify(payload);
     const headers = {
       'Content-Type': 'application/json',
-      'User-Agent': 'WhatsApp-REST-Gateway/2.0'
+      'User-Agent': 'Zagel/2.0'
     };
 
     if (this.secret) {

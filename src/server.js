@@ -20,7 +20,7 @@ try {
 
 const server = app.listen(ENV.PORT, ENV.HOST, async () => {
   console.log('\n======================================================');
-  console.log('🚀 WhatsApp REST API Gateway is running!');
+  console.log('🕊️  Zagel (زاجل) — WhatsApp REST API Gateway is running!');
   console.log(`📡 URL: http://${ENV.HOST === '0.0.0.0' ? 'localhost' : ENV.HOST}:${ENV.PORT}`);
   console.log(`⚙️  Environment: ${ENV.NODE_ENV}`);
   console.log(`🤖 Engine: ${ENV.WHATSAPP_ENGINE.toUpperCase()}`);

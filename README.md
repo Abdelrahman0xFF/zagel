@@ -1,6 +1,6 @@
-# 💬 WhatsApp REST API Gateway
+# 🕊️ Zagel (زاجل) — WhatsApp REST API Gateway
 
-A lightweight, production-grade **Express.js REST API microservice and developer cockpit** to automate WhatsApp messaging from any application (Python backends, SaaS platforms, mobile applications, webhooks, or scripts).
+A lightweight, production-grade **WhatsApp REST API microservice and developer cockpit** to automate WhatsApp messaging from any application (Python backends, SaaS platforms, mobile applications, webhooks, or scripts). Inspired by the historic carrier pigeon (حمام زاجل) that pioneered instant messaging across the region.
 
 Runs in a **single Docker container** with **zero external database dependencies** (no PostgreSQL, no Redis, no Docker Compose required).
 
@@ -49,7 +49,7 @@ npm run dev
 ```bash
 curl -X POST "http://localhost:7860/api/messages/send" \
   -H "Content-Type: application/json" \
-  -d '{"number": "201012345678", "message": "Hello from WhatsApp REST Gateway! 🚀"}'
+  -d '{"number": "201012345678", "message": "Hello from Zagel! 🕊️"}'
 ```
 
 ---
@@ -113,16 +113,16 @@ The repository includes a [`render.yaml`](render.yaml) blueprint ready for 1-cli
 
 ```bash
 # Build the production Docker image
-docker build -t whatsapp-gateway .
+docker build -t zagel .
 
 # Run container with persistent data volume and restart policy
 docker run -d \
-  --name whatsapp-gateway \
+  --name zagel \
   --restart unless-stopped \
   -p 7860:7860 \
   -v $(pwd)/data:/app/data \
   --env-file .env \
-  whatsapp-gateway
+  zagel
 ```
 *(On Windows PowerShell, replace `$(pwd)` with `${PWD}`)*
 
@@ -137,7 +137,7 @@ For native Node.js environments on Ubuntu, Debian, or Windows Server:
 npm install -g pm2
 
 # 2. Start the gateway with automatic restarts and memory threshold
-pm2 start src/server.js --name whatsapp-gateway --max-memory-restart 500M
+pm2 start src/server.js --name zagel --max-memory-restart 500M
 
 # 3. Configure PM2 to start automatically on system reboot
 pm2 startup
@@ -512,7 +512,7 @@ curl -X POST "http://localhost:7860/api/messages/send" \
 ## 📮 Postman Collection
 
 The repository includes a ready-to-import Postman Collection:
-📄 **[`whatsapp-gateway.postman_collection.json`](./assets/whatsapp-gateway.postman_collection.json)**
+📄 **[`zagel.postman_collection.json`](./assets/zagel.postman_collection.json)**
 
 ### Included Folders:
 
@@ -636,4 +636,4 @@ The test runner will confirm that `/api/health` remains sanitized (no private ph
 
 ## 📄 License
 
-MIT License. Designed and engineered for high-performance WhatsApp messaging automation.
+Distributed under the [MIT License](LICENSE). Designed and engineered for high-performance WhatsApp messaging automation.

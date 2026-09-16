@@ -1,4 +1,4 @@
-# Product
+# Product — Zagel (زاجل)
 
 <!-- impeccable:product-schema 1 -->
 
@@ -12,11 +12,11 @@ Primary users are software developers, technical founders, indie hackers, and sy
 
 ## Product Purpose
 
-WhatsApp REST Gateway provides a lightweight, standalone, single-container REST API gateway and developer command center that bridges external backends (Python, Node.js, PHP, Go, cURL, webhooks) with WhatsApp. Success means zero-friction deployment (local, Render, Docker, Hugging Face Spaces), resilient connection management with Baileys, complete API key lifecycle governance, and an intuitive, production-grade developer cockpit.
+Zagel (زاجل) provides a lightweight, standalone, single-container REST API gateway and developer command center that bridges external backends (Python, Node.js, PHP, Go, cURL, webhooks) with WhatsApp. Inspired by the legendary carrier pigeon (حمام زاجل) that pioneered rapid messaging, Zagel is engineered for zero-friction deployment (local, Render, Docker, Hugging Face Spaces), resilient connection management with Baileys, complete API key lifecycle governance, and an intuitive, production-grade developer cockpit.
 
 ## Positioning
 
-Unlike heavy WhatsApp enterprise solutions that require separate databases (PostgreSQL, Redis) and multi-container Docker Compose stacks, WhatsApp REST Gateway is self-contained in a single lightweight process/container, persists sessions reliably to disk, offers a built-in cryptographic API token manager, and serves an integrated real-time Developer Cockpit with zero external dependencies.
+Unlike heavy WhatsApp enterprise solutions that require separate databases (PostgreSQL, Redis) and multi-container Docker Compose stacks, Zagel is self-contained in a single lightweight process/container, persists sessions reliably to disk or MongoDB, offers a built-in cryptographic API token manager, and serves an integrated real-time Developer Cockpit with zero external dependencies.
 
 ## Operating Context
 
@@ -42,7 +42,9 @@ Unlike heavy WhatsApp enterprise solutions that require separate databases (Post
 
 ## Brand Commitments
 
-- Product Name: **WhatsApp REST Gateway**
+- Product Name: **Zagel (زاجل)**
+- Slug & Identifiers: `zagel` / `Zagel/2.0`
+- Tagline: The Lightweight WhatsApp REST API Gateway & Developer Cockpit
 - Voice: Direct, technical, transparent, developer-first, reliable.
 - Tone: No marketing fluff; clear error messages, concrete status codes, and instant actionable diagnostics.
 

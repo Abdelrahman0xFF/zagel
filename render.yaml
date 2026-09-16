@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: whatsapp-gateway
+    name: zagel
     runtime: docker
     plan: starter
     healthCheckPath: /api/health
     disk:
-      name: whatsapp-data
+      name: zagel-data
       mountPath: /app/data
       sizeGB: 1
     envVars:

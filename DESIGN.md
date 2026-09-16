@@ -1,6 +1,6 @@
 ---
-name: WhatsApp REST Gateway Cockpit
-description: Modern developer cockpit and microservice command center for WhatsApp automation
+name: Zagel Developer Cockpit
+description: Modern developer cockpit and microservice command center for Zagel WhatsApp automation
 colors:
   canvas: "#080c14"
   surface: "#0e1522"
@@ -103,7 +103,7 @@ components:
 
 ## Overview
 
-WhatsApp REST Gateway Developer Cockpit provides a unified, high-density command interface for software engineers to monitor WhatsApp multi-device socket connections, generate and revoke API authentication tokens, test text and media dispatches interactively, and audit real-time gateway activity logs.
+Zagel Developer Cockpit provides a unified, high-density command interface for software engineers to monitor WhatsApp multi-device socket connections, generate and revoke API authentication tokens, test text and media dispatches interactively, and audit real-time gateway activity logs.
 
 ## Colors
 

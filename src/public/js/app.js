@@ -1,5 +1,5 @@
 /**
- * WhatsApp REST API Gateway — Developer Cockpit Client Application
+ * Zagel — WhatsApp REST API Gateway — Developer Cockpit Client Application
  * Production-ready developer command center with real-time telemetry,
  * token governance, interactive playground, and paginated audit stream.
  */
@@ -984,7 +984,7 @@ function updateSnippets() {
   let endpoint = '/api/messages/send';
   let payloadObj = {
     number: DOM.textMsgPhone.value.trim() || defaultPhone,
-    message: DOM.textMsgBody.value.trim() || 'Hello from WhatsApp REST Gateway!'
+    message: DOM.textMsgBody.value.trim() || 'Hello from Zagel! 🕊️'
   };
 
   if (mode === 'media') {

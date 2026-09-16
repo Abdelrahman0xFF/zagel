@@ -55,7 +55,7 @@ class WebhookController {
     try {
       await webhookService.dispatch('test.ping', {
         test: true,
-        message: 'This is a test webhook payload from WhatsApp REST Gateway.'
+        message: 'This is a test webhook payload from Zagel.'
       });
 
       return res.status(200).json({

@@ -18,7 +18,7 @@ class HealthController {
 
     res.status(200).json({
       status: 'ok',
-      service: 'whatsapp-rest-gateway',
+      service: 'zagel',
       version: '2.0.0',
       uptime: `${uptimeSeconds}s`,
       uptimeSeconds,

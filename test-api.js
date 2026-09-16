@@ -6,7 +6,7 @@ import { baileysService } from './src/services/baileys.service.js';
 const TEST_PORT = process.env.TEST_PORT ? parseInt(process.env.TEST_PORT, 10) : 7865;
 
 async function runTests() {
-  console.log('🧪 Starting WhatsApp REST Gateway Test Suite...\n');
+  console.log('🧪 Starting Zagel Test Suite...\n');
   const testPhoneNumber = ENV.WHITELIST_PHONE_NUMBER || '200000000000';
 
   const server = await new Promise((resolve) => {
@@ -50,7 +50,7 @@ async function runTests() {
     // 2. Web UI dashboard serves
     const webRes = await fetch(`${baseUrl}/`);
     const webHtml = await webRes.text();
-    assert(webRes.status === 200 && webHtml.includes('WhatsApp REST Gateway'), 'GET / serves Web Dashboard HTML');
+    assert(webRes.status === 200 && webHtml.includes('Zagel'), 'GET / serves Zagel Cockpit Web UI');
 
     // 2b. Favicon static assets serve
     const favSvgRes = await fetch(`${baseUrl}/favicon.svg`);
