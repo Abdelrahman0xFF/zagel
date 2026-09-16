@@ -23,7 +23,6 @@ router.use('/tokens', tokenRoutes);
 router.use('/activity', activityRoutes);
 router.use('/webhooks', webhookRoutes);
 
-// Convenience legacy alias
 router.post('/send-message', apiKeyAuth, messageRateLimiter, validateSendMessage, (req, res, next) => {
   messageController.sendMessage(req, res, next);
 });

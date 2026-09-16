@@ -3,4 +3,4 @@ Allow: /
 Allow: /dashboard
 Disallow: /api/
 
-Sitemap: /sitemap.xml
+Sitemap: https://zagel.abdelrahmanashraf.dev/sitemap.xml

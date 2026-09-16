@@ -65,7 +65,6 @@ class DatabaseService {
       try {
         await this.client.connect();
       } catch (connErr) {
-        // If local DNS fails to resolve SRV record (common on Windows with local stub DNS), retry using public DNS
         if (connErr.message && (connErr.message.includes('querySrv') || connErr.message.includes('ECONNREFUSED'))) {
           console.log('🌐 Local DNS failed to resolve MongoDB SRV record. Retrying with public DNS resolver...');
           dns.setServers(['8.8.8.8', '1.1.1.1']);

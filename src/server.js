@@ -7,7 +7,6 @@ import { tokenService } from './services/token.service.js';
 import { activityService } from './services/activity.service.js';
 import { webhookService } from './services/webhook.service.js';
 
-// Connect to MongoDB if MONGODB_URI is provided, or fall back to local file storage
 try {
   await databaseService.connect();
   await adminService.init();

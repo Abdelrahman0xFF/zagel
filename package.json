@@ -7,8 +7,9 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "test": "node test-api.js",
-    "test:mongo": "node test-mongo.js"
+    "test": "node scripts/test-api.js",
+    "test:seo": "node scripts/audit-seo.js",
+    "test:mongo": "node scripts/test-mongo.js"
   },
   "keywords": [
     "whatsapp",

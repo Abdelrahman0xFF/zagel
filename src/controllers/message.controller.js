@@ -112,7 +112,6 @@ class MessageController {
             failedCount++;
           }
 
-          // Anti-ban randomized jitter delay between dispatches
           const jitter = Math.floor(Math.random() * 400);
           await new Promise(resolve => setTimeout(resolve, safeDelay + jitter));
         }
@@ -127,7 +126,6 @@ class MessageController {
       };
 
       if (runAsync) {
-        // Return 202 Accepted immediately to prevent HTTP proxy timeouts
         processBatch().catch(err => {
           console.error(`[MessageController] Bulk batch ${batchId} error:`, err);
         });
@@ -141,7 +139,6 @@ class MessageController {
         });
       }
 
-      // Synchronous execution for smaller batches
       const outcome = await processBatch();
       return res.status(200).json({
         success: true,

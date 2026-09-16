@@ -64,14 +64,12 @@ export function adminAuth(req, res, next) {
 export function apiKeyAuth(req, res, next) {
   const candidateKey = extractCandidateKey(req);
 
-  // 1. Check if caller provided the Master Admin Key
   if (candidateKey && adminService.validateAdminKey(candidateKey)) {
     req.isAdmin = true;
     req.authRole = 'admin';
     return next();
   }
 
-  // 2. Validate against client tokens
   const validation = tokenService.validateToken(candidateKey);
 
   if (validation.valid) {
