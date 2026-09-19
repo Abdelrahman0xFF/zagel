@@ -8,7 +8,6 @@
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "test": "node scripts/test-api.js",
-    "test:seo": "node scripts/audit-seo.js",
     "test:mongo": "node scripts/test-mongo.js"
   },
   "keywords": [
